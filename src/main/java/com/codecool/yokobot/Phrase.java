@@ -2,7 +2,8 @@ package com.codecool.yokobot;
 
 import java.util.Arrays;
 import java.util.List;
-// import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.LinkedList;
 
 /**
  * An object representing a phrase as a list of words.
@@ -20,6 +21,23 @@ public class Phrase {
         if (phrase == null) {
             throw new InvalidPhraseException("Phrase cannot be created from null.");
         }
-        words = Arrays.asList(phrase.split("[, ]+"));
+
+        words = new LinkedList(Arrays.asList(phrase.split("[, ]+")));
+
+        sanitize();
+
+        if (words.isEmpty()) {
+            throw new InvalidPhraseException("Phrase didn't contain any words.");
+        }
+    }
+
+    private void sanitize() {
+        ListIterator<String> it = words.listIterator();
+
+        while (it.hasNext()) {
+            if (it.next().equals("")) {
+                it.remove();
+            }
+        }
     }
 }

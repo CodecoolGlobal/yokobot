@@ -18,4 +18,10 @@ public class PhraseTest {
         assertThrows(InvalidPhraseException.class,
                      () -> new Phrase(null));
     }
+
+    @Test
+    public void testPhraseOfEmptyString() {
+        assertThrows(InvalidPhraseException.class,
+                     () -> new Phrase(""));
+    }
 }
