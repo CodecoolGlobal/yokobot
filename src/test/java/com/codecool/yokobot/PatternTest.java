@@ -26,4 +26,18 @@ public class PatternTest {
 
         assertFalse(pattern.match(new Phrase("Bar")));
     }
+
+    @Test
+    public void testMatchTwoWords() {
+        Pattern pattern = new Pattern("Foo bar");
+
+        assertTrue(pattern.match(new Phrase("Foo bar")));
+    }
+
+    @Test
+    public void testDontMatchDifferentSecondWord() {
+        Pattern pattern = new Pattern("Foo bar");
+
+        assertFalse(pattern.match(new Phrase("Foo baz")));
+    }
 }
