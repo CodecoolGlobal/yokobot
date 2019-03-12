@@ -12,4 +12,18 @@ public class PatternTest {
         assertThrows(InvalidPhraseException.class,
                      () -> new Pattern(""));
     }
+
+    @Test
+    public void testMatchSingleWord() {
+        Pattern pattern = new Pattern("Foo");
+
+        assertTrue(pattern.match(new Phrase("Foo")));
+    }
+
+    @Test
+    public void testDontMatchSingleWord() {
+        Pattern pattern = new Pattern("Foo");
+
+        assertFalse(pattern.match(new Phrase("Bar")));
+    }
 }

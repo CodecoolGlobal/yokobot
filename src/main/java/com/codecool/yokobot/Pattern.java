@@ -24,6 +24,6 @@ public class Pattern {
      * @param input the input to be matched.
      */
     public boolean match(Phrase input) {
-        return false;
+        return input.words.get(0).equals(pattern.words.get(0));
     }
 }

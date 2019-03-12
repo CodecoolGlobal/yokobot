@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * An object representing a phrase as a list of words.
  */
 public class Phrase {
-    private List<String> words;
+    List<String> words;
 
     /**
      * Creating a phrase from a single line.
