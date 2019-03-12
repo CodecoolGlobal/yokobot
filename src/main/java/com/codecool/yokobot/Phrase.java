@@ -14,8 +14,12 @@ public class Phrase {
      * Creating a phrase from a single line.
      *
      * @param phrase The line representing the phrase.
+     * @throws InvalidPhraseException if the parameter is null
      */
     public Phrase(String phrase) {
+        if (phrase == null) {
+            throw new InvalidPhraseException("Phrase cannot be created from null.");
+        }
         words = Arrays.asList(phrase.split("[, ]+"));
     }
 }
